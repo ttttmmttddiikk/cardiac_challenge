@@ -111,6 +111,10 @@ class CustomDataset(Dataset):
         data_Y_val = torch.stack([torch.from_numpy(self.getdata(self.list_file_name_val, i)[1]) for i in range(self.n_val)])
         return data_X_val, data_Y_val
     
+    def change_data_setting_to_train(self, data):
+        return data.to(torch.float32).requires_grad_(True)
+
+    
 
 
 #---------------------------------------------
